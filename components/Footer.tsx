@@ -16,6 +16,15 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
+          <span className="section-label">Zum Buch</span>
+          <ul className="footer-list">
+            <li>
+              <Link href="/arbeitsblaetter">Arbeitsblätter anfordern</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
           <span className="section-label">Weitere Arbeiten</span>
           <ul className="footer-list">
             <li>

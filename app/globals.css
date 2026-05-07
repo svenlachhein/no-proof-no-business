@@ -609,8 +609,8 @@ img {
 
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -706,6 +706,55 @@ img {
 
 .newsletter-form .btn {
   flex-shrink: 0;
+}
+
+/* ============================================================
+   Arbeitsblätter-Page
+   ============================================================ */
+
+.ab-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ab-inner h1 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.ab-inner p {
+  font-size: 17px;
+  margin-bottom: 16px;
+}
+
+.ab-hint {
+  color: var(--color-muted);
+  font-size: 15px;
+  margin-bottom: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.ab-form {
+  margin-top: 24px;
+  max-width: 480px;
+}
+
+.ab-form-row {
+  margin-bottom: 12px;
+}
+
+.ab-form-input {
+  width: 100%;
+  border-right: 1px solid var(--color-border);
+}
+
+.ab-form-msg {
+  margin-top: 16px;
+}
+
+.ab-form-msg-error {
+  color: var(--color-accent);
 }
 
 /* ============================================================
