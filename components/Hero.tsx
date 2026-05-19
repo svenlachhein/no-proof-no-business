@@ -22,17 +22,19 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-cover">
-          <Image
-            src="/cover.jpg"
-            alt="no proof, no business – Cover"
-            width={1200}
-            height={1793}
-            priority
-          />
-          <BookPreviewModal
-            pageCount={20}
-            previewBaseUrl="https://treditionstorage.blob.core.windows.net/assets/preview-147df87e-487a-41a4-a6e6-cd321ea6134a-"
-          />
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+            <Image
+              src="/cover.jpg"
+              alt="no proof, no business – Cover"
+              width={1200}
+              height={1793}
+              priority
+            />
+            <BookPreviewModal
+              pageCount={20}
+              previewBaseUrl="https://treditionstorage.blob.core.windows.net/assets/preview-147df87e-487a-41a4-a6e6-cd321ea6134a-"
+            />
+          </div>
         </div>
       </div>
     </section>
