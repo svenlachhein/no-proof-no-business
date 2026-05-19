@@ -1,35 +1,32 @@
-import Link from "next/link";
 import NewsletterForm from "./NewsletterForm";
 
 export default function Footer() {
   return (
-    <footer id="kontakt" className="footer">
+    <footer className="footer">
       <div className="section-inner footer-inner">
         <div className="footer-col">
           <span className="section-label">Newsletter</span>
           <h3>Der Newsletter zur Reihe.</h3>
           <p>
-            Wenn ein neuer Band fertig ist, schicke ich eine Notiz. Sonst
-            Stille.
+            Eine kurze Mail, wenn etwas Neues erscheint. Kein Marketing, keine Newsletter-Floskeln.
           </p>
           <NewsletterForm />
         </div>
-
         <div className="footer-col">
-          <span className="section-label">Zum Buch</span>
+          <span className="section-label">Material</span>
           <ul className="footer-list">
             <li>
-              <Link href="/arbeitsblaetter">Arbeitsblätter anfordern</Link>
+              <span className="footer-list-meta">Bonus</span>
+              <a href="/arbeitsblaetter">25 Arbeitsblätter als PDF</a>
             </li>
           </ul>
         </div>
-
         <div className="footer-col">
           <span className="section-label">Weitere Arbeiten</span>
           <ul className="footer-list">
             <li>
-              <span className="footer-list-meta">Case Study</span>
-              <a href="https://der-millionen-pitch.de">der-millionen-pitch.de</a>
+              <span className="footer-list-meta">Über die Autoren</span>
+              <a href="https://lachhein-lierow.de">lachhein-lierow.de</a>
             </li>
             <li>
               <span className="footer-list-meta">Business Playbooks · Band II</span>
@@ -37,22 +34,6 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-
-        <div className="footer-col">
-          <span className="section-label">Rechtliches</span>
-          <ul className="footer-list">
-            <li>
-              <Link href="/impressum">Impressum</Link>
-            </li>
-            <li>
-              <Link href="/datenschutz">Datenschutz</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="footer-bottom">
-        <span>© 2026 Sven Lachhein · Business Playbooks</span>
       </div>
     </footer>
   );
