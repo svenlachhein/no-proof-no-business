@@ -2,11 +2,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Impressum – no proof, no business",
-  robots: { index: false, follow: false },
+  title: "Impressum",
+  description: "Impressum der Landingpage no proof, no business.",
 };
 
-export default function Impressum() {
+export default function ImpressumPage() {
   return (
     <>
       <nav className="nav">
@@ -21,35 +21,36 @@ export default function Impressum() {
           <span className="section-label">Rechtliches</span>
           <h1>Impressum</h1>
 
-          <h3>Verlagslabel</h3>
+          <h3>Angaben gemäß § 5 TMG</h3>
           <p>
-            Business Playbooks
-            <br />
-            c/o Dr. Lachhein
+            Dr. Lachhein Dr. Lierow GmbH
             <br />
             Jägerstraße 48
             <br />
             10117 Berlin
-            <br />
-            Deutschland
           </p>
+
+          <h3>Vertreten durch</h3>
+          <p>Geschäftsführer: Dr. Sven Lachhein</p>
 
           <h3>Kontakt</h3>
           <p>
-            E-Mail:{" "}
-            <a href="mailto:lachhein@drlc.de">lachhein@drlc.de</a>
+            Telefon: +49 163 364 9003
+            <br />
+            WhatsApp: +49 163 364 9003
+            <br />
+            E-Mail: kontakt@lachhein-lierow.de
           </p>
 
-          <h3>Druck und Distribution</h3>
+          <h3>Registereintrag</h3>
           <p>
-            tredition GmbH
+            Handelsregister: HRB 284000 B
             <br />
-            Heinz-Beusen-Stieg 5
-            <br />
-            22926 Ahrensburg
-            <br />
-            Deutschland
+            Registergericht: Amtsgericht Charlottenburg
           </p>
+
+          <h3>Steuernummer</h3>
+          <p>162/107/08131</p>
 
           <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
           <p>
@@ -60,16 +61,14 @@ export default function Impressum() {
             10117 Berlin
           </p>
 
-          <h3>Kontaktadresse nach EU-Produktsicherheitsverordnung</h3>
+          <h3>Haftungsausschluss</h3>
           <p>
-            <a href="mailto:lachhein@drlc.de">lachhein@drlc.de</a>
+            Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Der Anbieter übernimmt jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte.
           </p>
 
-          <h3>Urheberrecht</h3>
+          <h3>Streitschlichtung</h3>
           <p>
-            Das Werk, einschließlich seiner Teile, ist urheberrechtlich
-            geschützt. Für die Inhalte ist der Verlag verantwortlich. Jede
-            Verwertung ist ohne dessen Zustimmung unzulässig.
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
           </p>
         </div>
       </section>
