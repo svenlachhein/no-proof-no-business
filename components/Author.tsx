@@ -4,9 +4,8 @@ export default function Author() {
   return (
     <section id="autor" className="section">
       <div className="section-inner">
-        <span className="section-label">Autor</span>
+        <p className="section-label">7-figure VC burn · 8-figure B2B revenue</p>
         <h2>Dr. Sven Lachhein</h2>
-
         <div className="author-grid">
           <div className="author-photo">
             <Image
@@ -17,22 +16,13 @@ export default function Author() {
             />
           </div>
           <div className="author-text">
-            <div className="author-meta">
-              7-figure VC burn
-              <br />
-              8-figure B2B revenue!
-            </div>
             <p>
-              Mein erstes echtes Unternehmen hatte Venture Capital, zu
-              Höchstzeiten zwanzig Mitarbeiter und eine Millionenbewertung. Es
-              ging trotzdem pleite, weil das Geschäft darunter nicht solide
-              war.
+              Mein erstes Unternehmen hatte Venture Capital, zwanzig Mitarbeiter und eine siebenstellige Bewertung. Doppelseitige Artikel in VC-Magazinen, Everybody&apos;s Darling. Es ging trotzdem pleite, weil das Geschäft darunter nicht solide war. Komplexität stieg schneller als Belastbarkeit. Mitarbeiter klauten das Produkt. Verträge platzten. Selbst den Fire-Sale für einen Euro habe ich noch im Notartermin verbockt. Am Ende: Insolvenz, Everybody&apos;s Depp.
             </p>
             <p>
-              Die Frage, die ich damals übersprungen hatte: Funktioniert das
-              eigentlich auch ohne mich, ohne Glück, ohne den einen Großkunden,
-              der alles zusammenhält?
+              Danach habe ich neu angefangen, kleiner, ohne Investoren, wenige aber gute Kunden. Das Geschäft lief schnell, aber die alte Angst saß tief: Was genau macht ein Geschäft eigentlich belastbar? Aus der Antwort ist dieser Prüfpfad geworden, und aus dem Prüfpfad das Buch.
             </p>
+            <p className="author-meta">Vielleicht steckt in Toni ein bisschen von mir.</p>
           </div>
         </div>
       </div>
