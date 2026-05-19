@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BookPreviewModal from "./BookPreviewModal";
 
 
 export default function Hero() {
@@ -27,6 +28,10 @@ export default function Hero() {
             width={1200}
             height={1793}
             priority
+          />
+          <BookPreviewModal
+            pageCount={20}
+            previewBaseUrl="https://treditionstorage.blob.core.windows.net/assets/preview-147df87e-487a-41a4-a6e6-cd321ea6134a-"
           />
         </div>
       </div>
