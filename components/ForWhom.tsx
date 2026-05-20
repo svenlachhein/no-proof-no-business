@@ -7,7 +7,7 @@ export default function ForWhom() {
         <div className="card-grid cols-2">
           <article className="card">
             <h3>Clarissa</h3>
-            <p>Ehemalige Lehrerin, baut eine private Online-Nachhilfe auf. Fachliche Stärke, eine klare Idee, eine fertige Website. Kein einziger zahlender Kunde.</p>
+            <p>Ehemalige Lehrerin, baut eine private Online-Nachhilfe auf. Fachlich stark, die Idee steht. Einen zahlenden Kunden gibt es nicht.</p>
             <div className="card-meta">Für sie beginnt die Arbeit bei Stufe 1: Nachfrage beweisen, bevor irgendetwas anderes Sinn ergibt.</div>
           </article>
           <article className="card">
@@ -16,7 +16,7 @@ export default function ForWhom() {
             <div className="card-meta">Für ihn beginnt die Arbeit bei Stufe 2: Betrieb ordnen, danach durchrechnen, was wirklich übrig bleibt.</div>
           </article>
         </div>
-        <p className="for-whom-exclude">Nicht für dich, wenn du ein Strategiemodell suchst, ein Motivationsbuch erwartest oder ohne Bleistift in der Hand lesen willst. Die Arbeitsblätter sind die eigentliche Arbeit. Wer sie ausfüllt, hat eine Diagnose. Wer sie überfliegt, hat eine Meinung.</p>
+        <p className="for-whom-exclude">Nichts für dich, wenn du ein Strategiemodell oder ein Motivationsbuch erwartest. Und nichts für dich, wenn du ohne Bleistift in der Hand liest. Die Arbeitsblätter sind die eigentliche Arbeit. Wer sie ausfüllt, hat eine Diagnose. Wer sie überfliegt, hat eine Meinung.</p>
       </div>
     </section>
   );
