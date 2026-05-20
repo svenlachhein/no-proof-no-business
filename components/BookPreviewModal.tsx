@@ -28,15 +28,28 @@ export default function BookPreviewModal({
   }, [open, pageCount]);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const navButtonStyle = (disabled: boolean): React.CSSProperties => ({
+    width: 44,
+    height: 44,
+    flexShrink: 0,
+    borderRadius: "50%",
+    background: "rgba(255,255,255,0.12)",
+    border: "1px solid rgba(255,255,255,0.35)",
+    color: "white",
+    cursor: disabled ? "not-allowed" : "pointer",
+    opacity: disabled ? 0.35 : 1,
+    fontSize: 22,
+    lineHeight: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  });
 
   return (
     <>
@@ -73,63 +86,41 @@ export default function BookPreviewModal({
             background: "rgba(0, 0, 0, 0.92)",
             zIndex: 9999,
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            padding: "24px 16px",
+            boxSizing: "border-box",
           }}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
+          <button
+            type="button"
+            aria-label="Schließen"
+            onClick={() => setOpen(false)}
             style={{
-              position: "relative",
-              maxWidth: "90vw",
-              maxHeight: "90vh",
-              touchAction: "pan-y",
+              position: "absolute",
+              top: 16,
+              right: 20,
+              background: "transparent",
+              color: "white",
+              border: "none",
+              fontSize: 32,
+              cursor: "pointer",
+              lineHeight: 1,
+              zIndex: 2,
             }}
           >
-            <img
-              src={`${previewBaseUrl}${page}.jpg`}
-              alt={`Leseprobe Seite ${page} von ${pageCount}`}
-              style={{
-                display: "block",
-                maxWidth: "90vw",
-                maxHeight: "90vh",
-                objectFit: "contain",
-                background: "white",
-              }}
-            />
-            <button
-              type="button"
-              aria-label="Schließen"
-              onClick={() => setOpen(false)}
-              style={{
-                position: "absolute",
-                top: -40,
-                right: 0,
-                background: "transparent",
-                color: "white",
-                border: "none",
-                fontSize: 28,
-                cursor: "pointer",
-                padding: 4,
-                lineHeight: 1,
-              }}
-            >
-              ×
-            </button>
-          </div>
+            ×
+          </button>
 
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              position: "fixed",
-              bottom: 24,
-              left: "50%",
-              transform: "translateX(-50%)",
               display: "flex",
               alignItems: "center",
               gap: 16,
-              color: "white",
-              fontSize: 14,
+              maxWidth: "100%",
+              maxHeight: "calc(100vh - 110px)",
             }}
           >
             <button
@@ -137,44 +128,44 @@ export default function BookPreviewModal({
               aria-label="Vorherige Seite"
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.3)",
-                color: "white",
-                cursor: page === 1 ? "not-allowed" : "pointer",
-                opacity: page === 1 ? 0.4 : 1,
-                fontSize: 20,
-                lineHeight: 1,
-              }}
+              style={navButtonStyle(page === 1)}
             >
               ‹
             </button>
-            <span>
-              {page} / {pageCount}
-            </span>
+
+            <img
+              src={`${previewBaseUrl}${page}.jpg`}
+              alt={`Leseprobe Seite ${page} von ${pageCount}`}
+              style={{
+                display: "block",
+                maxWidth: "calc(100vw - 160px)",
+                maxHeight: "calc(100vh - 110px)",
+                objectFit: "contain",
+                background: "white",
+              }}
+            />
+
             <button
               type="button"
               aria-label="Nächste Seite"
               onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
               disabled={page === pageCount}
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.3)",
-                color: "white",
-                cursor: page === pageCount ? "not-allowed" : "pointer",
-                opacity: page === pageCount ? 0.4 : 1,
-                fontSize: 20,
-                lineHeight: 1,
-              }}
+              style={navButtonStyle(page === pageCount)}
             >
               ›
             </button>
+          </div>
+
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              marginTop: 16,
+              color: "white",
+              fontSize: 14,
+              letterSpacing: "0.04em",
+            }}
+          >
+            {page} / {pageCount}
           </div>
         </div>
       )}
