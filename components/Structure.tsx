@@ -25,7 +25,7 @@ const stufen = [
     name: "Wachstum",
     frage: "Was wird vervielfältigt, mit welchem Hebel, mit welchem Risiko?",
     werkzeuge: "Zielbildblatt, Wachstumshebelplan, Risikokarte, Skalierungsprofil.",
-    entscheidung: "Fokussieren, organisch skalieren, selektiv finanzieren oder kapitalgestützt wachsen.",
+    entscheidung: "Fokussieren, organisch skalieren, selektiv finanzieren, kapitalgestützt wachsen oder Voraussetzungen erst schließen.",
   },
 ];
 
