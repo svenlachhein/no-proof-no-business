@@ -34,6 +34,17 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+        <div className="footer-col">
+          <span className="section-label">Rechtliches</span>
+          <ul className="footer-list">
+            <li>
+              <a href="/impressum">Impressum</a>
+            </li>
+            <li>
+              <a href="/datenschutz">Datenschutz</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );
