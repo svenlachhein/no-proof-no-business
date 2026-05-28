@@ -1,25 +1,20 @@
-import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import PullQuote from "@/components/PullQuote";
-import Structure from "@/components/Structure";
-import ForWhom from "@/components/ForWhom";
-import Author from "@/components/Author";
-import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
-
-export default function Home() {
+export default function Page() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <PullQuote />
-        <Structure />
-        <ForWhom />
-        <Author />
-        <CTASection />
-      </main>
-      <Footer />
-    </>
+    <main
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#ffffff",
+        color: "#1a1a1a",
+        fontFamily: 'Georgia, "Times New Roman", serif',
+        padding: "24px",
+      }}
+    >
+      <p style={{ fontSize: "18px", textAlign: "center", margin: 0 }}>
+        Diese Seite ist vorübergehend nicht erreichbar.
+      </p>
+    </main>
   );
 }
