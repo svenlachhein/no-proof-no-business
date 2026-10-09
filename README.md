@@ -5,42 +5,38 @@ Business Playbooks · Band I.
 
 ## Stack
 
-- Next.js 15 (App Router)
-- React 19
-- TypeScript
-- Resend (Newsletter)
-- Vercel (Deploy)
+- Next.js (App Router), statischer Export (`output: 'export'`)
+- React, TypeScript
+- PHP für das Newsletter-Formular (`public/api/subscribe.php`)
+- Hosting: one.com, Deploy per GitHub Action (SFTP)
 
 ## Lokal entwickeln
 
 ```bash
 npm install
-cp .env.local.example .env.local
-# .env.local mit RESEND_API_KEY und RESEND_AUDIENCE_ID füllen
-npm run dev
+npm run dev     # Formular-API gibt es lokal nicht, sie läuft nur auf one.com
+npm run build   # erzeugt out/
 ```
 
-## Deploy auf Vercel
+## Deploy
 
-1. Repo auf GitHub pushen.
-2. Auf vercel.com neues Projekt anlegen, Repo importieren.
-3. Environment Variables in Vercel setzen:
-   - `RESEND_API_KEY`
-   - `RESEND_AUDIENCE_ID`
-4. Domain `no-proof-no-business.de` hinzufügen. Vercel zeigt die DNS-Records,
-   die bei one.com einzutragen sind (entweder A-Record oder CNAME).
+Jeder Push auf `main` baut die Seite und lädt `out/` per SFTP nach one.com.
+Secrets (GitHub > Settings > Secrets and variables > Actions):
+`FTP_SERVER` (ssh.<kennung>.service.one), `FTP_USERNAME`, `FTP_PASSWORD`,
+`FTP_SERVER_DIR` (Webroot der Domain, z. B. `/webroots/1a2b3c4d`).
+
+Den Webroot zeigt der Workflow-Lauf "nur auflisten" (Actions > Run workflow).
+
+## Server-Dateien
+
+- Newsletter-Adressen: `api/_data/newsletter.csv` auf dem Server (nicht im Repo, per .htaccess gesperrt)
+- Arbeitsblätter-Formular: sendet an `https://www.lachhein-lierow.de/api/pdf-request`
 
 ## Inhalt
 
-Inhalte stehen in den Komponenten unter `components/`. Keine CMS-Anbindung —
-Änderungen direkt im Code, dann commit + push.
+Inhalte stehen in den Komponenten unter `components/`. Änderungen direkt im Code, dann commit + push.
 
 ## Bilder
 
-- `public/cover.jpg` — Buchcover (Vorderseite, 1200x1793, ~80 KB)
-- `public/author.jpg` — Autor-Foto (600x600, ~75 KB)
-
-## Designsystem
-
-Gemeinsam mit lachhein-lierow.de und den anderen Bänden der Reihe
-(fatal-capital.de). Variablen und Patterns in `app/globals.css`.
+- `public/cover.jpg` — Buchcover
+- `public/author.jpg` — Autorenfoto

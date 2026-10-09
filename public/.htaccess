@@ -1,0 +1,21 @@
+# Apache-Konfiguration fuer one.com
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# Statusdatei des Deploys nicht ausliefern
+<Files ".ftp-deploy-sync-state.json">
+  Require all denied
+</Files>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Kanonisch: https, ohne www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?no-proof-no-business\.de$ [NC]
+RewriteRule ^ https://no-proof-no-business.de%{REQUEST_URI} [R=301,L]
+
+# API: saubere URL
+RewriteRule ^api/subscribe/?$ api/subscribe.php [L,QSA]
+</IfModule>

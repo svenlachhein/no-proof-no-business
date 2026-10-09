@@ -33,21 +33,32 @@ export default function Datenschutz() {
 
           <h3>Hosting</h3>
           <p>
-            Diese Website wird bei Vercel Inc., 340 S Lemon Ave #4133, Walnut,
-            CA 91789, USA gehostet. Beim Aufruf der Seite verarbeitet der
-            Hoster technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit
-            sowie aufgerufene URL in Server-Logs. Rechtsgrundlage ist Art. 6
-            Abs. 1 lit. f DSGVO (berechtigtes Interesse am stabilen Betrieb der
-            Seite).
+            Diese Website wird bei one.com A/S, Kalvebod Brygge 24, 1560
+            Kopenhagen V, Dänemark gehostet. Beim Aufruf der Seite verarbeitet
+            der Hoster technisch notwendige Daten wie IP-Adresse, Datum und
+            Uhrzeit sowie aufgerufene URL in Server-Logs. Rechtsgrundlage ist
+            Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am stabilen
+            Betrieb der Seite).
           </p>
 
           <h3>Newsletter</h3>
           <p>
             Wenn du dich für den Newsletter einträgst, wird deine E-Mail-Adresse
-            an Resend (Resend, Inc., 2261 Market Street #5039, San Francisco,
-            CA 94114, USA) übertragen und dort gespeichert. Rechtsgrundlage ist
-            deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Du kannst dich
-            jederzeit über den Abmelde-Link in jeder E-Mail austragen.
+            zusammen mit dem Zeitpunkt des Eintrags auf dem Server dieser
+            Website gespeichert. Es erfolgt keine Weitergabe an Dritte.
+            Rechtsgrundlage ist deine Einwilligung nach Art. 6 Abs. 1 lit. a
+            DSGVO. Du kannst dich jederzeit abmelden, indem du eine E-Mail an
+            die oben genannte Adresse schickst. Die Adresse wird dann gelöscht.
+          </p>
+
+          <h3>Arbeitsblätter anfordern</h3>
+          <p>
+            Wenn du die Arbeitsblätter anforderst, sendet das Formular deinen
+            Namen und deine E-Mail-Adresse an den Server von lachhein-lierow.de
+            (ebenfalls bei one.com gehostet). Du erhältst dort eine
+            Bestätigungs-Mail. Erst nach deinem Klick auf den Link wird die
+            Adresse gespeichert und dir das PDF zugeschickt. Rechtsgrundlage ist
+            deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO.
           </p>
 
           <h3>Cookies</h3>

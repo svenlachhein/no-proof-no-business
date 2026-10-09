@@ -39,7 +39,7 @@ export default function ImpressumPage() {
             <br />
             WhatsApp: +49 163 364 9003
             <br />
-            E-Mail: kontakt@lachhein-lierow.de
+            E-Mail: kontakt@drlc.de
           </p>
 
           <h3>Registereintrag</h3>

@@ -1,0 +1,69 @@
+name: Build und Deploy (one.com)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      nur_auflisten:
+        description: 'Nur Webroots auf dem Server anzeigen, nichts hochladen'
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+      FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pflicht-Secrets pruefen
+        run: |
+          missing=""
+          for v in FTP_SERVER FTP_USERNAME FTP_PASSWORD; do
+            [ -z "${!v}" ] && missing="$missing $v"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Fehlende Secrets:$missing (Settings > Secrets and variables > Actions)"
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: PHP-Syntax pruefen
+        run: for f in out/api/*.php; do php -l "$f"; done
+
+      # one.com bietet SSH/SFTP (Port 22). FTP_SERVER = ssh.<kennung>.service.one,
+      # FTP_USERNAME = SSH-Benutzer, FTP_PASSWORD = dessen Passwort,
+      # FTP_SERVER_DIR = Webroot der Domain, z. B. /webroots/1a2b3c4d
+      - name: SFTP-Client installieren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Webroots anzeigen
+        run: |
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set sftp:auto-confirm yes; set net:max-retries 2; echo '--- Domain-Zuordnung (by-route):'; cls -l /run/webroots/by-route/; bye" "sftp://$FTP_SERVER"
+
+      - name: Per SFTP zu one.com hochladen
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.nur_auflisten != true }}
+        run: |
+          if [ -z "$FTP_SERVER_DIR" ]; then
+            echo "::error::FTP_SERVER_DIR fehlt (Webroot der Domain, siehe Schritt 'Webroots anzeigen')"
+            exit 1
+          fi
+          # Ohne --delete: Dateien, die der Server selbst anlegt (api/_data), bleiben unberuehrt.
+          lftp -u "$FTP_USERNAME,$FTP_PASSWORD" -e "set sftp:auto-confirm yes; set net:max-retries 2; mirror -R --parallel=4 --no-perms --verbose ./out '$FTP_SERVER_DIR'; bye" "sftp://$FTP_SERVER"
