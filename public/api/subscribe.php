@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') out(['error' => 'Methode nicht erlaub
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($origin !== '') {
     $host = parse_url($origin, PHP_URL_HOST);
-    if ($host !== ($_SERVER['HTTP_HOST'] ?? '')) out(['error' => 'Nicht erlaubt.'], 403);
+    if ($host !== preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST'] ?? '')) out(['error' => 'Nicht erlaubt.'], 403);
 }
 
 $body = json_decode(file_get_contents('php://input'), true);
